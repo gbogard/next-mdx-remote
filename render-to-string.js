@@ -4,7 +4,7 @@ const { transformAsync } = require('@babel/core')
 const presetEnv = require('@babel/preset-env')
 const presetReact = require('@babel/preset-react')
 const pluginBrowser = require('./babel-plugin-mdx-browser')
-const nodeEval = require('require-from-string')
+const nodeEval = require('./require-from-string')
 const reactRenderToString = require('react-dom/server').renderToString
 const React = require('react')
 
