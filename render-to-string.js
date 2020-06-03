@@ -8,7 +8,7 @@ const nodeEval = require('./require-from-string')
 const reactRenderToString = require('react-dom/server').renderToString
 const React = require('react')
 
-module.exports = function renderToString(source, components, options) {
+module.exports = function renderToString(source, components, options, wrapper) {
   let jsSource
   // transform it into react
   const renderer = `
@@ -55,7 +55,7 @@ import { mdx } from '@mdx-js/react'
             {
               components,
             },
-            component({})
+            wrapper ? wrapper(component({})) : component({})
           )
         ),
       }
